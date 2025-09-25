@@ -380,7 +380,7 @@ class TestLOWLEVEL:
             cppyy.gbl.ArrayOfCStrings.takes_array_of_cstrings(pyargs, len(pyargs))
 
     def test11_array_of_const_char_ref(self):
-        """Test passting of const char**&"""
+        """Test passing of const char**&"""
 
         import cppyy, ctypes
         import cppyy.ll
