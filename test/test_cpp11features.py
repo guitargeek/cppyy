@@ -560,3 +560,19 @@ class TestCPP11FEATURES:
 
         assert ns.call_creator(pyfunc)
 
+    def test20_tuple_element(self):
+        """
+        Check that std::tuple_element works.
+        See: https://github.com/root-project/root/issues/14232.
+        """
+
+        import cppyy
+
+        cppyy.cppdef("""
+        #include <tuple>
+        #include <string>
+        using ATuple = std::tuple<int, float, std::string, double>;
+        """)
+        from cppyy.gbl import ATuple
+
+        cppyy.gbl.std.tuple_element[1, ATuple].type
